@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">War Sound</string>
+    <string name="title">War Sound</string>
+    <string name="subtitle">Trigger battlefield-style alerts, signal bursts, and march patterns.</string>
+    <string name="ready_message">Ready for signal.</string>
+    <string name="now_playing">Now playing: %1$s</string>
+    <string name="air_raid">Air Raid</string>
+    <string name="radio_chatter">Radio Chatter</string>
+    <string name="battle_alarm">Battle Alarm</string>
+    <string name="march_beat">March Beat</string>
+    <string name="morse_signal">Morse Signal</string>
+    <string name="stop">Stop</string>
+</resources>
