@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         binding.attentionButton.setOnClickListener { playMode(SoundMode.ATTENTION_CALL) }
         binding.holdButton.setOnClickListener { playMode(SoundMode.HOLD_POSITION) }
         binding.evacButton.setOnClickListener { playMode(SoundMode.EVAC_SIGNAL) }
+        binding.droneHoverButton.setOnClickListener { playMode(SoundMode.DRONE_HOVER) }
+        binding.droneApproachButton.setOnClickListener { playMode(SoundMode.DRONE_APPROACH) }
+        binding.droneSwarmButton.setOnClickListener { playMode(SoundMode.DRONE_SWARM) }
         binding.stopButton.setOnClickListener { stopPlayback() }
 
         binding.statusText.text = getString(R.string.status_idle)
@@ -153,6 +156,36 @@ private enum class SoundMode(val labelRes: Int, val pattern: List<TonePulse>) {
             TonePulse(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK, 700, 80, true),
             TonePulse(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK, 700, 80, true),
             TonePulse(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK, 700, 300, true)
+        )
+    ),
+    DRONE_HOVER(
+        R.string.drone_hover,
+        listOf(
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 90, 40, false),
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 90, 40, false),
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 90, 120, false),
+            TonePulse(ToneGenerator.TONE_SUP_PIP, 160, 180, false)
+        )
+    ),
+    DRONE_APPROACH(
+        R.string.drone_approach,
+        listOf(
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_L, 120, 40, false),
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_L, 140, 40, false),
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_L, 180, 30, false),
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_L, 220, 30, true),
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_L, 280, 220, true)
+        )
+    ),
+    DRONE_SWARM(
+        R.string.drone_swarm,
+        listOf(
+            TonePulse(ToneGenerator.TONE_PROP_BEEP, 70, 20, false),
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 70, 20, false),
+            TonePulse(ToneGenerator.TONE_PROP_BEEP, 70, 20, false),
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 70, 20, false),
+            TonePulse(ToneGenerator.TONE_CDMA_ABBR_INTERCEPT, 240, 60, true),
+            TonePulse(ToneGenerator.TONE_CDMA_ABBR_ALERT, 280, 180, true)
         )
     );
 }
