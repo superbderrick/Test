@@ -8,17 +8,4 @@
         <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
-
-    <style name="Widget.WarSound.Button" parent="Widget.Material3.Button">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="backgroundTint">@color/war_olive</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="cornerRadius">18dp</item>
-        <item name="android:paddingVertical">16dp</item>
-    </style>
-
-    <style name="Widget.WarSound.StopButton" parent="Widget.WarSound.Button">
-        <item name="backgroundTint">@color/war_red</item>
-    </style>
 </resources>

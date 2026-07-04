@@ -27,7 +27,12 @@ class MainActivity : AppCompatActivity() {
         binding.alarmButton.setOnClickListener { playMode(SoundMode.BATTLE_ALARM) }
         binding.marchButton.setOnClickListener { playMode(SoundMode.MARCH_BEAT) }
         binding.morseButton.setOnClickListener { playMode(SoundMode.MORSE_SIGNAL) }
+        binding.attentionButton.setOnClickListener { playMode(SoundMode.ATTENTION_CALL) }
+        binding.holdButton.setOnClickListener { playMode(SoundMode.HOLD_POSITION) }
+        binding.evacButton.setOnClickListener { playMode(SoundMode.EVAC_SIGNAL) }
         binding.stopButton.setOnClickListener { stopPlayback() }
+
+        binding.statusText.text = getString(R.string.status_idle)
     }
 
     override fun onDestroy() {
@@ -38,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     private fun playMode(mode: SoundMode) {
         stopPlayback()
         activeMode = mode
-        binding.statusText.text = getString(R.string.now_playing, getString(mode.labelRes))
+        binding.statusText.text = getString(R.string.status_active, getString(mode.labelRes))
 
         thread(name = "sound-mode-${mode.name.lowercase()}") {
             val tone = ToneGenerator(AudioManager.STREAM_MUSIC, 100)
@@ -62,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     private fun stopPlayback() {
         activeMode = null
         vibrator?.cancel()
-        binding.statusText.text = getString(R.string.ready_message)
+        binding.statusText.text = getString(R.string.status_idle)
     }
 
     private fun vibrate(durationMs: Long, enabled: Boolean) {
@@ -123,6 +128,31 @@ private enum class SoundMode(val labelRes: Int, val pattern: List<TonePulse>) {
             TonePulse(ToneGenerator.TONE_PROP_BEEP, 120, 180, false),
             TonePulse(ToneGenerator.TONE_PROP_BEEP2, 360, 120, false),
             TonePulse(ToneGenerator.TONE_PROP_BEEP2, 360, 120, false)
+        )
+    ),
+    ATTENTION_CALL(
+        R.string.attention_call,
+        listOf(
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_PBX_L, 420, 80, true),
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_PBX_L, 420, 80, true),
+            TonePulse(ToneGenerator.TONE_CDMA_HIGH_PBX_L, 680, 260, true)
+        )
+    ),
+    HOLD_POSITION(
+        R.string.hold_position,
+        listOf(
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 220, 60, false),
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 220, 60, false),
+            TonePulse(ToneGenerator.TONE_PROP_BEEP2, 220, 220, true),
+            TonePulse(ToneGenerator.TONE_SUP_PIP, 500, 240, false)
+        )
+    ),
+    EVAC_SIGNAL(
+        R.string.evac_signal,
+        listOf(
+            TonePulse(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK, 700, 80, true),
+            TonePulse(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK, 700, 80, true),
+            TonePulse(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK, 700, 300, true)
         )
     );
 }

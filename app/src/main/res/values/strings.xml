@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">War Sound</string>
     <string name="title">War Sound</string>
-    <string name="subtitle">Trigger battlefield-style alerts, signal bursts, and march patterns.</string>
+    <string name="subtitle">Battlefield alerts and signal bursts</string>
     <string name="ready_message">Ready for signal.</string>
     <string name="now_playing">Now playing: %1$s</string>
     <string name="air_raid">Air Raid</string>
@@ -9,5 +9,18 @@
     <string name="battle_alarm">Battle Alarm</string>
     <string name="march_beat">March Beat</string>
     <string name="morse_signal">Morse Signal</string>
+    <string name="attention_call">Attention Call</string>
+    <string name="hold_position">Hold Position</string>
+    <string name="evac_signal">Evac Signal</string>
     <string name="stop">Stop</string>
+    <string name="status_idle">Status green. Awaiting command.</string>
+    <string name="status_active">Signal live: %1$s</string>
+    <string name="badge_air">AIR</string>
+    <string name="badge_radio">COM</string>
+    <string name="badge_alarm">ALM</string>
+    <string name="badge_march">MRH</string>
+    <string name="badge_morse">MOS</string>
+    <string name="badge_attention">ATTN</string>
+    <string name="badge_hold">HOLD</string>
+    <string name="badge_evac">EVAC</string>
 </resources>

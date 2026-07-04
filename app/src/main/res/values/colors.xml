@@ -1,7 +1,13 @@
 <resources>
     <color name="war_olive">#56613B</color>
     <color name="war_olive_dark">#2E3520</color>
+    <color name="war_olive_light">#7B8550</color>
     <color name="war_sand">#D7C9A4</color>
+    <color name="war_text">#F2E9C9</color>
+    <color name="war_text_dim">#A8AD87</color>
+    <color name="war_panel">#212317</color>
+    <color name="war_panel_line">#48492E</color>
+    <color name="war_green">#A6D34A</color>
     <color name="war_orange">#D06B2E</color>
     <color name="war_red">#8D2D1F</color>
     <color name="war_surface">#161A12</color>
